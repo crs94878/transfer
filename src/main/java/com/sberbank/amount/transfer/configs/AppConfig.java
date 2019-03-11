@@ -38,6 +38,7 @@ public class AppConfig {
         dataSource.setUrl(JDBC_URL);
         dataSource.setUsername(JDBC_USERNAME);
         dataSource.setPassword(JDBC_PASSWORD);
+        System.out.println(dataSource.getUrl());
         return dataSource;
     }
 

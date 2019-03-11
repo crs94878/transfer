@@ -24,7 +24,7 @@ public class MoneyTransferService {
     private TransferResponseModel transferResponseModel;
 
     @Transactional
-    public TransferResponseModel transfer(TransferRequestModel request) throws TransferException {
+    public synchronized TransferResponseModel transfer(TransferRequestModel request) throws TransferException {
         requestValidation.isValidRequest(request);
         AccountEntity accountPostEntity = accountsDAO.getEntity(request.getAccountId());
         accountPostEntity = writeOffMoney(accountPostEntity, request.getAmount());
