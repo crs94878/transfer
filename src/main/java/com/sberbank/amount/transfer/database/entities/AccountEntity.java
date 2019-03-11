@@ -13,9 +13,6 @@ import javax.persistence.Table;
 @NamedNativeQueries({
         @NamedNativeQuery(name = "getAccount",
                 query = "SELECT * FROM Accounts WHERE ID = :ID  ",
-                resultClass = AccountEntity.class),
-        @NamedNativeQuery(name = "updateAccountsAmount",
-                query = "UPDATE ACCOUNTS SET AMOUNT = :AMOUNT WHERE ID = :ID",
                 resultClass = AccountEntity.class)
 })
 public class AccountEntity {

@@ -28,9 +28,9 @@ public class MoneyTransferService {
         requestValidation.isValidRequest(request);
         AccountEntity accountPostEntity = accountsDAO.getEntity(request.getAccountId());
         accountPostEntity = writeOffMoney(accountPostEntity, request.getAmount());
-        accountsDAO.update(accountPostEntity);
         AccountEntity accountReciveEntity = accountsDAO.getEntity(request.getDestinationAccountId());
         accountReciveEntity = addMoney(accountReciveEntity, request.getAmount());
+        accountsDAO.update(accountPostEntity);
         accountsDAO.update(accountReciveEntity);
         transferResponseModel.init(0, "Средства успешно переведены", accountReciveEntity.getID());
         return transferResponseModel;
