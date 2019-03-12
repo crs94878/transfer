@@ -10,11 +10,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "BANK_ACCOUNTS")
-@NamedNativeQueries({
-        @NamedNativeQuery(name = "getAccount",
-                query = "SELECT * FROM BANK_ACCOUNTS WHERE ID = :ID  ",
-                resultClass = AccountEntity.class)
-})
 public class AccountEntity {
 
     @Id

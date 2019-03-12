@@ -16,7 +16,7 @@ public class AccountsDAOTests {
     @Autowired
     private AccountsDAO accountsDAO;
 
-    @Test (expected = AccountNotFoundException.class)
+    @Test (expected = IllegalArgumentException.class)
     public void getEntityTest(){
         accountsDAO.getEntity(null);
     }
@@ -25,5 +25,10 @@ public class AccountsDAOTests {
     public void getEntityTestCompare(){
         AccountEntity testAcc = accountsDAO.getEntity("QWER");
         Assert.assertNotNull(testAcc);
+    }
+
+    @Test(expected = AccountNotFoundException.class)
+    public void getNullAccountEntityTest(){
+        accountsDAO.getEntity("1234");
     }
 }

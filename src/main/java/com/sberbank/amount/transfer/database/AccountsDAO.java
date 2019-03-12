@@ -25,13 +25,10 @@ public class AccountsDAO {
     @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = TransferException.class)
     public AccountEntity getEntity(String acountID) throws AccountNotFoundException {
         Session session = sessionFactory.getCurrentSession();
-        Query<AccountEntity> query = (Query<AccountEntity>) session.getNamedQuery("getAccount");
-        query.setParameter("ID", acountID);
-        List<AccountEntity> listAccounts = query.list();
-        if(listAccounts.isEmpty()){
-            throw new AccountNotFoundException(String.format("Счет №: %s - В базе не найден!", acountID));
+        AccountEntity accountEntity = (AccountEntity) session.get(AccountEntity.class, acountID);
+        if(accountEntity == null){
+            throw new AccountNotFoundException(String.format("Счет с №: %s - в базе не найден", acountID));
         }
-        AccountEntity accountEntity = listAccounts.get(0);
         System.out.println(accountEntity);
         return accountEntity;
     }
