@@ -1,4 +1,0 @@
-2019-03-11 03:09:05 jdbc[4]: exception
-org.h2.jdbc.JdbcSQLException: Таблица "ACCOUNTS" не найдена
-Table "ACCOUNTS" not found; SQL statement:
-SELECT * FROM Accounts WHERE ID = ? [42102-197]
