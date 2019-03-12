@@ -29,7 +29,6 @@ public class AccountsDAO {
         if(accountEntity == null){
             throw new AccountNotFoundException(String.format("Счет с №: %s - в базе не найден", acountID));
         }
-        System.out.println(accountEntity);
         return accountEntity;
     }
 
