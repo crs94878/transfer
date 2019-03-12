@@ -25,7 +25,7 @@ public class AccountsDAO {
     @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = TransferException.class)
     public AccountEntity getEntity(String acountID) throws AccountNotFoundException {
         Session session = sessionFactory.getCurrentSession();
-        AccountEntity accountEntity = (AccountEntity) session.get(AccountEntity.class, acountID);
+        AccountEntity accountEntity = session.get(AccountEntity.class, acountID);
         if(accountEntity == null){
             throw new AccountNotFoundException(String.format("Счет с №: %s - в базе не найден", acountID));
         }
