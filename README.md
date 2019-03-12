@@ -7,14 +7,14 @@ APP for Transfer money between bank accouts
 там вести в поле JDBC URL: ввести jdbc:h2:../data/transferdb
 и там для заполнения хотя бы какими-то данными можно ввести SQL скрипт -
 
-CREATE TABLE Accounts(
+CREATE TABLE Bank_Accounts(
 ID NVARCHAR(25) NOT NULL PRIMARY KEY,
 AMOUNT INT NOT NULL,
 CURRENCY NVARCHAR(25) NOT NULL,
 );
-INSERT INTO ACCOUNTS VALUES ('QWER', 2000, 'RUR');
-INSERT INTO ACCOUNTS VALUES ('ASDF', 5000, 'RUR');
-INSERT INTO ACCOUNTS VALUES ('PLMN', 5000, 'RUR')
+INSERT INTO Bank_ACCOUNTS VALUES ('QWER', 2000, 'RUR');
+INSERT INTO Bank_ACCOUNTS VALUES ('ASDF', 5000, 'RUR');
+INSERT INTO Bank_ACCOUNTS VALUES ('PLMN', 5000, 'RUR')
 
 
 И тогда можно тестить.
